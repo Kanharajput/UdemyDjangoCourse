@@ -35,10 +35,9 @@ def monthlyChallengeWithNumber(request,month):
         # here url is hard coded so if some changes made in url-config then it will not work 
         # so we have to extract the url using identifier    
         redirect_to = reverse("url_identifier",args=[month_related_to_number])
-        print(redirect_to)
         return HttpResponseRedirect(redirect_to)       # redirecting to the actual url
 
-    return HttpResponseNotFound("There are no months greater than 12")
+    return HttpResponseNotFound("<h1>There are no months greater than 12</h1>")
 
 
 # handling many urls 
@@ -46,7 +45,10 @@ def monthlyChallengeWithNumber(request,month):
 def monthlyChallenge(request, month):
     try:
         challenge = all_challenges[month]
-        return HttpResponse(challenge)
+        # convert this challenge to html command
+        # here f is formatted string which have a replacement field delimited in curly bracket
+        challenge_in_html = f"<h1>{challenge}</h1>"
+        return HttpResponse(challenge_in_html)
 
     except:
-        return HttpResponseNotFound("Url doesn't exist")
+        return HttpResponseNotFound("<h1>Url doesn't exist</h1>")
