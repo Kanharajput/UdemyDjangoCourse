@@ -52,3 +52,16 @@ def monthlyChallenge(request, month):
 
     except:
         return HttpResponseNotFound("<h1>Url doesn't exist</h1>")
+
+
+def index(request):
+    link_of_month = ""
+    months = list(all_challenges.keys())           # getting months name
+
+    for month in months:
+        month_capitilize = month.capitalize()
+        url_of_month = reverse("url_identifier",args=[month])
+        link_of_month += f"<li><a href=\"{url_of_month}\">{month_capitilize}</a></li>"
+
+    response = f"<ul>{link_of_month}</ul>"
+    return HttpResponse(response)
