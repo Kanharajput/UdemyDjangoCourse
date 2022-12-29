@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 '''
@@ -31,11 +32,13 @@ def monthlyChallengeWithNumber(request,month):
     # allow till 12 only as size of list is 12
     if month <= len(all_challenges_keys_list):
         month_related_to_number = all_challenges_keys_list[month-1]      # getting month name with number, used as index
-        return HttpResponseRedirect("/challenges/" + month_related_to_number)       # redirecting to the actual url
+        # here url is hard coded so if some changes made in url-config then it will not work 
+        # so we have to extract the url using identifier    
+        redirect_to = reverse("url_identifier",args=[month_related_to_number])
+        print(redirect_to)
+        return HttpResponseRedirect(redirect_to)       # redirecting to the actual url
 
     return HttpResponseNotFound("There are no months greater than 12")
-
-
 
 
 # handling many urls 
