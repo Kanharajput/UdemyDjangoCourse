@@ -7,6 +7,14 @@ def january(request):
     return HttpResponse("Finish udemy")
 '''
 
+def monthlyChallengeWithNumber(request,month):
+    if month == 1:
+        return HttpResponse("1")
+
+    else:
+        return HttpResponseNotFound("Url not found")
+
+
 # handling many urls 
 # getting month variable from the url
 def monthlyChallenge(request, month):
