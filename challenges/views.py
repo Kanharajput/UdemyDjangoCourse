@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string
+
 # Create your views here.
 '''
 def january(request):
@@ -45,9 +46,9 @@ def monthlyChallengeWithNumber(request,month):
 def monthlyChallenge(request, month):
     try:
         challenge = all_challenges[month]
-        # rendering html in string 
-        challenge_in_html = render_to_string("challenges/show_challenge.html")
-        return HttpResponse(challenge_in_html)
+        # django can fetch file from template folder if some folder inside template folder 
+        # then we have to write the path of file from template folder 
+        return render(request,"challenges/show_challenge.html")
 
     except:
         return HttpResponseNotFound("<h1>Url doesn't exist</h1>")
