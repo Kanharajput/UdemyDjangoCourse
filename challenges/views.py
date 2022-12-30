@@ -48,7 +48,13 @@ def monthlyChallenge(request, month):
         challenge = all_challenges[month]
         # django can fetch file from template folder if some folder inside template folder 
         # then we have to write the path of file from template folder 
-        return render(request,"challenges/show_challenge.html")
+        # django uses django template language to make static html page dynamic
+        # like here we send the challenge to the show_challenge.html file
+        # and we can get it out in html file by {{}} . This is the syntax
+        # and here { key : value} is simply a dictionary in python
+        return render(request,
+                        "challenges/show_challenge.html",   
+                            {"challenge_key":challenge,"month_key":month})
 
     except:
         return HttpResponseNotFound("<h1>Url doesn't exist</h1>")
