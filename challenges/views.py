@@ -51,7 +51,7 @@ def monthlyChallenge(request, month):
         # django uses django template language to make static html page dynamic
         # like here we send the challenge to the show_challenge.html file
         # and we can get it out in html file by {{}} . This is the syntax
-        # and here { key : value} is simply a dictionary in python
+        # and here { key : value} is simply a dictionary
         return render(request,
                         "challenges/show_challenge.html",   
                             {"challenge_key":challenge,"month_key":month})
@@ -61,13 +61,7 @@ def monthlyChallenge(request, month):
 
 
 def index(request):
-    link_of_month = ""
-    months = list(all_challenges.keys())           # getting months name
-
-    for month in months:
-        month_capitilize = month.capitalize()
-        url_of_month = reverse("url_identifier",args=[month])
-        link_of_month += f"<li><a href=\"{url_of_month}\">{month_capitilize}</a></li>"
-
-    response = f"<ul>{link_of_month}</ul>"
-    return HttpResponse(response)
+    # get all months
+    all_months = list(all_challenges.keys())
+    # rendering the months we create list dynamically using django template language
+    return render(request,"challenges/index.html",{"months":all_months})     

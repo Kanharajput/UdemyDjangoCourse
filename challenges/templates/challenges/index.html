@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--title is used to captilize the output, it is predefined tags to customize data
+    check for tags and filter in django documentation it have for loop, if else , and , or , operators and 
+    many more predefined tags which needed mostly
+    -->
+    <title>All challenges</title>
+</head>
+<body>
+    <h1>List of the months, click to see the challenge</h1>
+    <ul>
+        {%for month in months %}
+            <!--here challenges in the url is the hard coded-->
+            <li><a href="/challenges/{{month}}">{{month}}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
