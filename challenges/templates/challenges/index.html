@@ -14,8 +14,13 @@
     <h1>List of the months, click to see the challenge</h1>
     <ul>
         {%for month in months %}
-            <!--here challenges in the url is the hard coded-->
-            <li><a href="/challenges/{{month}}">{{month}}</a></li>
+            <!--here challenges in the url is the hard coded
+            which is not a good practise so as we generate url using reverse in 
+            python, DTL(django template language) provide url to generate url           
+            -->
+            <!--here month is january , february.... and url_identifier is just like we used 
+            in reverse -->
+            <li><a href="{% url 'url_identifier' month %}">{{month}}</a></li>
         {% endfor %}
     </ul>
 </body>
