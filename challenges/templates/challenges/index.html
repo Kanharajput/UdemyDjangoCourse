@@ -1,27 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--title is used to captilize the output, it is predefined tags to customize data
-    check for tags and filter in django documentation it have for loop, if else , and , or , operators and 
-    many more predefined tags which needed mostly
-    -->
-    <title>All challenges</title>
-</head>
-<body>
-    <h1>List of the months, click to see the challenge</h1>
-    <ul>
-        {%for month in months %}
-            <!--here challenges in the url is the hard coded
-            which is not a good practise so as we generate url using reverse in 
-            python, DTL(django template language) provide url to generate url           
-            -->
-            <!--here month is january , february.... and url_identifier is just like we used 
-            in reverse -->
-            <li><a href="{% url 'url_identifier' month %}">{{month}}</a></li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+<!--we are extending all other code from the base.html
+we are simply inheriting the data as we use extend keyword in java
+to inherit from parent class.
+-->
+{% block title %} All challenges {% endblock title %} 
+
+{% block heading %} List of the months, click to see the challenge {% endblock heading %}
+
+{% block content %}
+<ul>
+    {%for month in months %}
+        <!--here challenges in the url is the hard coded
+        which is not a good practise so as we generate url using reverse in 
+        python, DTL(django template language) provide url to generate url           
+        -->
+        <!--here month is january , february.... and url_identifier is just like we used 
+        in reverse -->
+        <li><a href="{% url 'url_identifier' month %}">{{month}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock content %}

@@ -1,0 +1,23 @@
+<!--this file is extended by index.html and show_challenge.html
+add it's path in settings template DIRS as it is not in any app folder
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <!--this block is for heading, data is injecting by the
+    child file which inherit it-->
+    <h1> {% block heading %} 
+    <!--heading will show up here-->
+    {% endblock heading %} </h1>
+
+    {% block content %}
+    <!-- all content will appear here-->
+    {% endblock content %}
+</body>
+</html>

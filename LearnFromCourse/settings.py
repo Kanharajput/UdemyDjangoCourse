@@ -59,6 +59,8 @@ TEMPLATES = [
         # and add the path below
         'DIRS': [
             # BASE_DIR / "templates"
+            # adding template folder which is in root folder because it is not in app folder
+            BASE_DIR / "templates"
         ],
         # if we have templates declared in app folder then this below code will fetch them 
         # automatically without adding their path to DIRS but we have to add the name of app in

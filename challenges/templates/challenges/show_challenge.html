@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--title is used to captilize the output, it is predefined tags to customize data
-    check for tags and filter in django documentation it have for loop, if else , and , or , operators and 
-    many more predefined tags which needed mostly
-    -->
-    <title>{{month_key|title}}</title>
-</head>
-<body>
-    <h1>{{month_key|title}}</h1>
-    
+{% extends 'base.html' %}
+<!--title is used to captilize the output, it is predefined tags to customize data
+check for tags and filter in django documentation it have for loop, if else , and , or , operators and 
+many more predefined tags which needed mostly
+-->
+{% block title %} {{month_key|title}} {% endblock title %}
+
+{% block heading %} {{month_key|title}} {% endblock heading %}
+
+{% block content %}
     {% if challenge_key is not None %}
         <h2>{{challenge_key}}</h2>               
     {% else %}
         <h2>No challenge for {{month_key}}</h2>
     {% endif %}
-    
-</body>
-</html>
+{% endblock content %}
