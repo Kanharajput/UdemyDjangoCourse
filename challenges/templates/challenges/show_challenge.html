@@ -12,7 +12,12 @@
 </head>
 <body>
     <h1>{{month_key|title}}</h1>
-    <!-- django template language syntax to get the value out from dictionary using key-->
-    <h2>{{challenge_key}}</h2>               
+    
+    {% if challenge_key is not None %}
+        <h2>{{challenge_key}}</h2>               
+    {% else %}
+        <h2>No challenge for {{month_key}}</h2>
+    {% endif %}
+    
 </body>
 </html>

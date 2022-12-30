@@ -22,7 +22,7 @@ all_challenges = {
     "september" : "complete previous learnt things",
     "october" : "last month of course",
     "november" : "Some projects from companies",
-    "december" : "Practise and enjoy placement after 8 sem that'swhy",
+    "december" : None
 }
 
 
