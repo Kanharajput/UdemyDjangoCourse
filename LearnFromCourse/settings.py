@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'challenges',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,7 +55,14 @@ ROOT_URLCONF = 'LearnFromCourse.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # if we have some global templates then create folder in root directory of project
+        # and add the path below
+        'DIRS': [
+            # BASE_DIR / "templates"
+        ],
+        # if we have templates declared in app folder then this below code will fetch them 
+        # automatically without adding their path to DIRS but we have to add the name of app in
+        # installed apps and create folder in app folder like this templates/name_of_app/htmlfile.html
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
