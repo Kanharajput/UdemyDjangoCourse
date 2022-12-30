@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{month_key}}</title>
+    <!--title is used to captilize the output, it is predefined tags to customize data
+    check for tags and filter in django documentation it have for loop, if else , and , or , operators and 
+    many more predefined tags which needed mostly
+    -->
+    <title>{{month_key|title}}</title>
 </head>
 <body>
-    <h1>{{month_key}}</h1>
+    <h1>{{month_key|title}}</h1>
     <!-- django template language syntax to get the value out from dictionary using key-->
     <h2>{{challenge_key}}</h2>               
 </body>
