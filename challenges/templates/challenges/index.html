@@ -3,24 +3,36 @@
 we are simply inheriting the data as we use extend keyword in java
 to inherit from parent class.
 -->
+
+<!--this is used to load the static files and why they are called static because css is never gonna change it can't be dynamic
+    it remain static all time and images also and javascript.
+    Django automatically detect the static folder in app if app is added in installed app in settings.py
+    we are writing path like 'challenges/index.css' because till static django automatically finds from that static folder we have to write the path
+-->
+{% load static %}
+
+{% block link_css %}
+    <link rel="stylesheet" href="{% static 'challenges/index.css' %}">
+{% endblock link_css %}
+
 {% block title %} All challenges {% endblock title %} 
 
 {% block heading %} List of the months, click to see the challenge {% endblock heading %}
 
 {% block content %}
-<!--here wer are include the navigation bar-->
-<!--active_page is used to know the at a time active page-->
-{% include "challenges/include/header.html" with active_page="all challenges" %}
+    <!--here wer are include the navigation bar-->
+    <!--active_page is used to know the at a time active page-->
+    {% include "challenges/include/header.html" with active_page="all challenges" %}
 
-<ul>
-    {%for month in months %}
-        <!--here challenges in the url is the hard coded
-        which is not a good practise so as we generate url using reverse in 
-        python, DTL(django template language) provide url to generate url           
-        -->
-        <!--here month is january , february.... and url_identifier is just like we used 
-        in reverse -->
-        <li><a href="{% url 'url_identifier' month %}">{{month}}</a></li>
-    {% endfor %}
-</ul>
+    <ul>
+        {%for month in months %}
+            <!--here challenges in the url is the hard coded
+            which is not a good practise so as we generate url using reverse in 
+            python, DTL(django template language) provide url to generate url           
+            -->
+            <!--here month is january , february.... and url_identifier is just like we used 
+            in reverse -->
+            <li><a href="{% url 'url_identifier' month %}">{{month}}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock content %}

@@ -1,6 +1,9 @@
 <!--this file is extended by index.html and show_challenge.html
 add it's path in settings template DIRS as it is not in any app folder
 -->
+<!--load the static files-->
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,8 @@ add it's path in settings template DIRS as it is not in any app folder
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
+
+    {% block link_css %}<!--here we link the css file-->{% endblock link_css %}
 </head>
 <body>
     <!--this block is for heading, data is injecting by the
