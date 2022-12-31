@@ -8,6 +8,10 @@ to inherit from parent class.
 {% block heading %} List of the months, click to see the challenge {% endblock heading %}
 
 {% block content %}
+<!--here wer are include the navigation bar-->
+<!--active_page is used to know the at a time active page-->
+{% include "challenges/include/header.html" with active_page="all challenges" %}
+
 <ul>
     {%for month in months %}
         <!--here challenges in the url is the hard coded

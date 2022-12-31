@@ -8,6 +8,8 @@ many more predefined tags which needed mostly
 {% block heading %} {{month_key|title}} {% endblock heading %}
 
 {% block content %}
+    <!--here wer are include the navigation bar-->
+    {% include "challenges/include/header.html" with active_page="challenge" %}
     {% if challenge_key is not None %}
         <h2>{{challenge_key}}</h2>               
     {% else %}

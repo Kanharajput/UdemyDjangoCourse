@@ -9,5 +9,5 @@ urlpatterns = [  # here sequence matters so int url should be above str otherwis
     path('<int:month>', views.monthlyChallengeWithNumber),          # this will handle integer values url like 1 or 2 ....
     path('<str:month>', views.monthlyChallenge, name="url_identifier"),         # this will handle only string urls
     #path('january', views.january)
-    path("",views.index),
+    path("",views.index, name="index"),       # generating url for this path
 ]
