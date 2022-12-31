@@ -3,16 +3,22 @@
 check for tags and filter in django documentation it have for loop, if else , and , or , operators and 
 many more predefined tags which needed mostly
 -->
+{% load static %}
 {% block title %} {{month_key|title}} {% endblock title %}
 
-{% block heading %} {{month_key|title}} {% endblock heading %}
+{% block link_css %}
+    <link rel="stylesheet" href="{% static 'challenges/show_challenge.css' %}">
+    <link rel="stylesheet" href="{% static 'challenges/include/header.css' %}">
+{% endblock link_css %}
+
 
 {% block content %}
     <!--here wer are include the navigation bar-->
-    {% include "challenges/include/header.html" with active_page="challenge" %}
+    {% include "challenges/include/header.html" %}
     {% if challenge_key is not None %}
+        <h1>{{month_key}} challenge </h1>
         <h2>{{challenge_key}}</h2>               
     {% else %}
-        <h2>No challenge for {{month_key}}</h2>
+        <p class="fallback">No challenge for {{month_key}}</p>
     {% endif %}
 {% endblock content %}

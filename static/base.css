@@ -1,7 +1,13 @@
 /*this file can be accessed by all apps*/
 @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
 
-body{
+html {
     font-family: 'East Sea Dokdo', cursive;
+}
+
+body{
+    margin:0;
+    background-color: #1a1a1a;
     font-size: 150%;
+    
 }
