@@ -12,6 +12,7 @@ add it's path in settings template DIRS as it is not in any app folder
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
 
+    <link rel="stylesheet" href="{% static 'base.css' %}">
     {% block link_css %}<!--here we link the css file-->{% endblock link_css %}
 </head>
 <body>

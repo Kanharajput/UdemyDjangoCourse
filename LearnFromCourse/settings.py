@@ -130,6 +130,11 @@ USE_TZ = True
 # it is need to change at a time of deployment not now
 STATIC_URL = '/static/'
 
+# path of static directory which can be used by all directories
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
