@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponseNotFound, HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.template.loader import render_to_string
 
@@ -57,7 +57,9 @@ def monthlyChallenge(request, month):
                             {"challenge_key":challenge,"month_key":month})
 
     except:
-        return HttpResponseNotFound("<h1>Url doesn't exist</h1>")
+        # this will automatically find the 404 html file in base dir template folder and server it
+        # but the condition is that DEBUG = False otherwise show the full detail not the 404.html page
+        raise Http404()               
 
 
 def index(request):
